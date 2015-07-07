@@ -1,0 +1,24 @@
+{
+  "name": "node-file-parser",
+  "version": "1.0.0",
+  "description": "A simple yet powerful module to parse any file.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/jasmine-node spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://StephanBijzitter@bitbucket.org/skelware/node-file-parser.git"
+  },
+  "keywords": [
+    "ini",
+    "json",
+    "parse",
+    "skelware"
+  ],
+  "author": "Skelware <admin@skelware.com> (skelware.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  }
+}
