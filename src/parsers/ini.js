@@ -108,7 +108,7 @@ module.exports = (function() {
                             result.section[section][key] = [value];
                         }
                     } else {
-
+                        result.section[section][key] = value;
                     }
                 } else if (array) {
                     if (result.global[key]) {

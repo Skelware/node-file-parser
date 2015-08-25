@@ -14,6 +14,16 @@ describe('INI Parser', function() {
         expect(content_a).toBeDefined();
     });
 
+    it('should read global parameters from INI file', function(){
+        var debug = parser_a.read().getContent().global.debug;
+        expect(debug).toEqual('true');
+    });
+
+    it('should support normal parameters (not array) in INI file', function(){
+        var content_a = parser_a.read().getContent();
+        expect(content_a.section.fourth_section.notarray).toEqual('file6');
+    });
+
     it('should be able to save an INI file', function() {
         var content_a = parser_a.read().getContent();
         var content_b = parser_b.read().write().read().getContent();
