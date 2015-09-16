@@ -1,3 +1,5 @@
+[![Build Status](https://drone.io/bitbucket.org/skelware/node-file-parser/status.png)](https://drone.io/bitbucket.org/skelware/node-file-parser/latest)
+
 # Node File Parser
 The Node File Parser package was initially created to support other packages with their configurations.
 
