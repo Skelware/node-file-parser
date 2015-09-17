@@ -10,7 +10,7 @@ Imagine you have an .ini file that contains a list of all your source files nice
 
 What do you do? Do you copy/paste the contents of the .ini file into your testing framework's configuration file and manually keep it up to date every time you (or someone else) updates the .ini file? Hell no! You want to keep using that .ini file without the need to ever think about having to fiddle around with any testing configurations ever again!
 
-This is why I wrote this simple package, it's small yet very extensible and that makes it gorgeous: it can do anything! With the Node File Parser you can tell your testing framework to fetch its source files from any other file, with relative ease.
+This is why we wrote this simple package, it's small yet very extensible and that makes it gorgeous: it can do anything! With the Node File Parser you can tell your testing framework to fetch its source files from any other file, with relative ease.
 
 You want an example? Here, this is an example configuration for using Jasmine with Phantom through Grunt:
 ````javascript
@@ -80,3 +80,21 @@ module.exports = function(grunt) {
 };
 ````
 The only manual intervention in this case was the modification of the file paths (changing their relative paths to different relative paths). But now, whenever we change our .ini file, we will not have to worry about our Gruntfile. Great!
+
+## Contributing
+Whether you're a programmer or not, all contributions are very welcome! You could add features, improve existing features or request new features. Assuming the unit tests cover all worst-case scenarios, you will not be able to report bugs because there will be no bugs.
+
+If you want to make changes to the source, you should fork this repository and create a pull-request to our master branch. Make sure that each individual commit does not break the functionality, and contains new unit tests for the changes you make. Existing assertions will not be edited until a major release to remain compatible with older versions, so please do not change them unless absolutely necessary.
+
+To test your changes locally, run `npm install` followed by `npm test`.
+
+## Versioning
+As much as we want everyone to always use the latest version, we know that this is a utopia. Therefore, we adhere to a strict versioning system that is widely accepted: `major.minor.patch`.
+
+Patches are very small edits that do not affect the input or output of a program, and thus can go unnoticed to the person implementing the software. These are often documentation changes or under-the-hood improvements.
+
+Minor versions may introduce new public functions, and may provide fixes for existing functions. This means that a function may suddenly return a different value. If you update to a new minor version, there is a small chance that you need to adjust a very small part of your code, but you will not have to re-do anything. If new functions are added to replace old functions, the old functions will be deprecated but will still be usable.
+
+An example of this is with a recent fix for the JSON parser, which used to return `'{}'` when the decoding of a JSON file failed. However, upon decoding an object is expected to be returned (and not a String), thus the return value for invalid JSON files was changed to `{}`.
+
+Major versions have a good chance of completely breaking backward compatibility and you may need to make some significant changes. Most of the times however, this would mean that a few functions were removed, renamed or heavily altered. Any deprecated functions from previous minor releases will be removed. Major releases will happen very rarely.
