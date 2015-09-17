@@ -89,12 +89,4 @@ If you want to make changes to the source, you should fork this repository and c
 To test your changes locally, run `npm install` followed by `npm test`.
 
 ## Versioning
-As much as we want everyone to always use the latest version, we know that this is a utopia. Therefore, we adhere to a strict versioning system that is widely accepted: `major.minor.patch`.
-
-Patches are very small edits that do not affect the input or output of a program, and thus can go unnoticed to the person implementing the software. These are often documentation changes or under-the-hood improvements.
-
-Minor versions may introduce new public functions, and may provide fixes for existing functions. This means that a function may suddenly return a different value. If you update to a new minor version, there is a small chance that you need to adjust a very small part of your code, but you will not have to re-do anything. If new functions are added to replace old functions, the old functions will be deprecated but will still be usable.
-
-An example of this is with a recent fix for the JSON parser, which used to return `'{}'` when the decoding of a JSON file failed. However, upon decoding an object is expected to be returned (and not a String), thus the return value for invalid JSON files was changed to `{}`.
-
-Major versions have a good chance of completely breaking backward compatibility and you may need to make some significant changes. Most of the times however, this would mean that a few functions were removed, renamed or heavily altered. Any deprecated functions from previous minor releases will be removed. Major releases will happen very rarely.
+As much as we want everyone to always use the latest version, we know that this is a utopia. Therefore, we adhere to a strict versioning system that is widely accepted: `major.minor.patch`. This is also known as the [SemVer](http://semver.org/spec/v2.0.0.html) method.
