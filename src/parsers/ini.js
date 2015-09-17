@@ -3,6 +3,7 @@ module.exports = (function() {
     var FileParser = require('../interfaces/FileParser');
 
     var regex = {
+        bad: /=|:/g,
         array: /\[\]/g,
         comment: /\s*;|#/g,
         section: /^\s*\[(.+)\]\s*$/g,
@@ -72,14 +73,14 @@ module.exports = (function() {
         for (var i = 0; i < lines.length; i++) {
             var line = lines[i];
 
-            if (!line || new RegExp(regex.comment).test(line)) {
+            if (_isComment(line) || _isNotValidIni(line)) {
                 continue;
             }
 
-            var newSection = new RegExp(regex.section).exec(line);
+            var newSection = _getNewSection(line);
             if (newSection) {
-                section = newSection[1];
-                result['section'][newSection[1]] = {};
+                section = newSection;
+                result['section'][section] = {};
                 continue;
             }
 
@@ -124,6 +125,20 @@ module.exports = (function() {
 
         return result;
     };
+
+    function _isComment(line) {
+        return !line || regex.comment.test(line);
+    }
+
+    function _getNewSection(line) {
+        var result = new RegExp(regex.section).exec(line);
+        return result && result[1];
+    }
+
+    function _isNotValidIni(line) {
+        var check = line.match(regex.bad);
+        return check && check.length > 1;
+    }
 
     return Parser;
 }());

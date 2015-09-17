@@ -19,7 +19,7 @@ module.exports = (function() {
             var temp = JSON.parse(data);
             result = temp;
         } catch (exception) {
-            result = '{}';
+            result = {};
         }
         return result;
     };

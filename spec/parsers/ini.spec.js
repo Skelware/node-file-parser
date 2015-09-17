@@ -4,6 +4,7 @@ describe('INI Parser', function() {
 
     var parser_a = NodeFileParser.link('data/lorem.ini');
     var parser_b = NodeFileParser.link('data/lorem.ini');
+    var parser_c = NodeFileParser.link('data/lorem.json', 'ini');
 
     it('should be instanced at all times', function() {
         expect(parser_a).not.toBe(parser_b);
@@ -14,12 +15,12 @@ describe('INI Parser', function() {
         expect(content_a).toBeDefined();
     });
 
-    it('should read global parameters from INI file', function(){
+    it('should read global parameters from INI file', function() {
         var debug = parser_a.read().getContent().global.debug;
         expect(debug).toEqual('true');
     });
 
-    it('should support normal parameters (not array) in INI file', function(){
+    it('should support normal parameters (not array) in INI file', function() {
         var content_a = parser_a.read().getContent();
         expect(content_a.section.fourth_section.notarray).toEqual('file6');
     });
@@ -40,5 +41,11 @@ describe('INI Parser', function() {
 
         parser_a.write().read();
         expect(content_a).toEqual(parser_a.getContent());
+    });
+
+    it('should be able to handle a broken or invalid INI file', function() {
+        var no_content = {global:{}, section:{}};
+        var content_c = parser_c.read().getContent();
+        expect(content_c).toEqual(no_content);
     });
 });

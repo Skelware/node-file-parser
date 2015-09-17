@@ -4,6 +4,7 @@ describe('JSON Parser', function() {
 
     var parser_a = NodeFileParser.link('data/lorem.json');
     var parser_b = NodeFileParser.link('data/lorem.json');
+    var parser_c = NodeFileParser.link('data/lorem.ini', 'json');
 
     it('should be instanced at all times', function() {
         expect(parser_a).not.toBe(parser_b);
@@ -26,5 +27,11 @@ describe('JSON Parser', function() {
 
         parser_a.write().read();
         expect(content_a).toEqual(parser_a.getContent());
+    });
+
+    it('should be able to handle a broken or invalid JSON file', function() {
+        var no_content = {};
+        var content_c = parser_c.read().getContent();
+        expect(content_c).toEqual(no_content);
     });
 });
