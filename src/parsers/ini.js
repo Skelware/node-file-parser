@@ -157,7 +157,7 @@ module.exports = (function() {
      * @private
      */
     function _isComment(line) {
-        return !line || regex.comment.test(line);
+        return regex.comment.test(line || '');
     }
 
     /**
@@ -165,11 +165,11 @@ module.exports = (function() {
      *
      * @method _getNewSection
      * @param [line] {String} The line to check.
-     * @returns {Boolean}
+     * @returns {String} The section name, if found.
      * @private
      */
     function _getNewSection(line) {
-        var result = new RegExp(regex.section).exec(line);
+        var result = new RegExp(regex.section).exec(line || '');
         return result && result[1];
     }
 
@@ -182,8 +182,8 @@ module.exports = (function() {
      * @private
      */
     function _isNotValidIni(line) {
-        var check = line.match(regex.bad);
-        return check && check.length > 1;
+        var check = (line || '').match(regex.bad);
+        return !!(check && check.length > 1);
     }
 
     return Parser;
