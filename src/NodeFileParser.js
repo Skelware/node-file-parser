@@ -1,3 +1,10 @@
+/**
+ * The NodeFileParser is the entry point of this package.
+ *
+ * @static
+ * @class NodeFileParser
+ * @module Main
+ */
 module.exports = (function() {
 
     /**

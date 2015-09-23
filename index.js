@@ -1,1 +1,1 @@
-module.exports = require('./src/NodeFileParser')
+module.exports = require('./src/NodeFileParser');

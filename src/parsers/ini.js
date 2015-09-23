@@ -1,3 +1,7 @@
+/**
+ * @class ini
+ * @module Parsers
+ */
 module.exports = (function() {
 
     var FileParser = require('../interfaces/FileParser');
@@ -10,6 +14,10 @@ module.exports = (function() {
         keyValuePair: /\s*(.*)\s*(=|:)\s*(.*)(\s|;|#)*/g
     };
 
+    /**
+     * @method Parser
+     * @constructor
+     */
     function Parser() {
         FileParser.apply(this, arguments);
     }
@@ -17,6 +25,13 @@ module.exports = (function() {
     Parser.prototype = Object.create(FileParser.prototype);
     Parser.constructor = Parser;
 
+    /**
+     * Encodes an ini object into an ini string that can be written to a file.
+     *
+     * @method encode
+     * @param [data] {Object} An ini object formatted as explained in the class description.
+     * @returns {string} A valid ini representation of the data.
+     */
     Parser.prototype.encode = function(data) {
         var result = '';
 
@@ -61,6 +76,13 @@ module.exports = (function() {
         return result;
     };
 
+    /**
+     * Decodes an ini string to an ini object.
+     *
+     * @method decode
+     * @param [data] {String} A string of data to be decoded.
+     * @returns {Object} A new object with two primary keys: `global` and `section`.
+     */
     Parser.prototype.decode = function(data) {
         var lines = data.split('\n');
 
@@ -126,15 +148,39 @@ module.exports = (function() {
         return result;
     };
 
+    /**
+     * Checks whether a line is a comment or not.
+     *
+     * @method _isComment
+     * @param [line] {String} The line to check.
+     * @returns {Boolean}
+     * @private
+     */
     function _isComment(line) {
         return !line || regex.comment.test(line);
     }
 
+    /**
+     * Checks whether a line indicates a new section or not.
+     *
+     * @method _getNewSection
+     * @param [line] {String} The line to check.
+     * @returns {Boolean}
+     * @private
+     */
     function _getNewSection(line) {
         var result = new RegExp(regex.section).exec(line);
         return result && result[1];
     }
 
+    /**
+     * Checks whether the line contains only valid ini syntax or not.
+     *
+     * @method _isNotValidIni
+     * @param [line] {String} The line to check.
+     * @returns {Boolean}
+     * @private
+     */
     function _isNotValidIni(line) {
         var check = line.match(regex.bad);
         return check && check.length > 1;
