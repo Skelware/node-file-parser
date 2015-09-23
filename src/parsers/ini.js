@@ -36,12 +36,14 @@ module.exports = (function() {
         var result = '';
 
         if (!data) {
-            return '';
-        } else if (!data.global && data.section) {
-            data = {section: data};
-        } else if (!data.section) {
+            return result;
+        }
+
+        if (!data.section) {
             data.section = {};
-        } else if (!data.global) {
+        }
+
+        if (!data.global) {
             data.global = {};
         }
 
@@ -84,7 +86,7 @@ module.exports = (function() {
      * @returns {Object} A new object with two primary keys: `global` and `section`.
      */
     Parser.prototype.decode = function(data) {
-        var lines = data.split('\n');
+        var lines = data && data.split ? data.split('\n') : [];
 
         var result = {
             global: {},
@@ -117,7 +119,11 @@ module.exports = (function() {
                 }
 
                 if (this._watcher) {
-                    var feedback = this._watcher({section: section, key: key, value: value});
+                    var feedback = this._watcher({
+                        key: key,
+                        value: value,
+                        section: section
+                    });
                     section = feedback.section;
                     key = feedback.key;
                     value = feedback.value;
