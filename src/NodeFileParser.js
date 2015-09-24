@@ -17,17 +17,17 @@ module.exports = (function() {
         {
             name: 'ini',
             pattern: /\.ini$/i,
-            handler: require('./parsers/ini')
+            Handler: require('./parsers/ini')
         },
         {
             name: 'json',
             pattern: /\.(json)|(js)$/i,
-            handler: require('./parsers/json')
+            Handler: require('./parsers/json')
         },
         {
             name: 'text',
             pattern: /.*/i,
-            handler: require('./parsers/text')
+            Handler: require('./parsers/text')
         }
     ];
 
@@ -49,9 +49,9 @@ module.exports = (function() {
             var parser = parsers[i];
 
             if (type ? parser.name === type : parser.pattern.test(file)) {
-                var handler = new parser.handler(file);
-                handler.name = parser.name;
-                return handler;
+                var Handler = new parser.Handler(file);
+                Handler.name = parser.name;
+                return Handler;
             }
         }
     }

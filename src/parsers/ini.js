@@ -69,8 +69,14 @@ module.exports = (function() {
 
                 if (!Array.isArray(section[key])) {
                     result += key + ' = ' + value + '\n';
-                } else for (var k = 0; k < section[key].length; k++) {
-                    result += key + '[] = ' + value[k] + '\n';
+                } else {
+                    /*
+                     TODO: Create ESLint plugin
+                     https://github.com/eslint/eslint/issues/3914
+                     */
+                    for (var k = 0; k < section[key].length; k++) {
+                        result += key + '[] = ' + value[k] + '\n';
+                    }
                 }
             }
         }
@@ -104,7 +110,7 @@ module.exports = (function() {
             var newSection = _getNewSection(line);
             if (newSection) {
                 section = newSection;
-                result['section'][section] = {};
+                result.section[section] = {};
                 continue;
             }
 

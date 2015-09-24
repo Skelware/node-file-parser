@@ -82,7 +82,7 @@ module.exports = (function() {
                 if (response !== false) {
                     this._content = response || data;
                 }
-            }.bind(this)
+            }.bind(this);
 
             fs.readFile(this._file, 'utf8', listener);
         } else {
