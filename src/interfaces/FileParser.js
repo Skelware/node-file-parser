@@ -137,7 +137,7 @@ module.exports = (function() {
      * @returns {Object|String}
      */
     FileParser.prototype.decode = function(data) {
-        return data;
+        return this._watcher ? this._watcher(data) : data;
     };
 
     return FileParser;
