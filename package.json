@@ -3,15 +3,12 @@
   "version": "1.1.1",
   "description": "A simple yet powerful module to parse any file.",
   "main": "index.js",
-  "scripts": {
-    "test": "./node_modules/.bin/jasmine-node spec"
-  },
   "repository": {
     "type": "git",
-    "url": "https://StephanBijzitter@bitbucket.org/skelware/node-file-parser.git"
+    "url": "https://github.com/Skelware/node-file-parser"
   },
   "bugs": {
-    "url": "https://bitbucket.org/skelware/node-file-parser/issues"
+    "url": "https://github.com/Skelware/node-file-parser/issues"
   },
   "scripts": {
     "test": "grunt test"
