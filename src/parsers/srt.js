@@ -86,7 +86,7 @@ module.exports = (function() {
                     store();
                 }
                 number = _number[1];
-                return;
+                return undefined;
             }
 
             var _coordinates = line.match(regex.coordinates);
@@ -103,7 +103,7 @@ module.exports = (function() {
                     return store();
                 }
                 times = _times;
-                return;
+                return undefined;
             }
 
             if (line.length) {

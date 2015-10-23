@@ -71,8 +71,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-jasmine-node-coverage');
 
     grunt.registerTask('lint', ['eslint']);
-    grunt.registerTask('test', ['jasmine_node']);
     grunt.registerTask('doc', ['yuidoc']);
-
-    grunt.registerTask('default', ['test', 'lint', 'doc']);
+    grunt.registerTask('unit', ['jasmine_node']);
+    grunt.registerTask('test', ['lint', 'unit']);
+    grunt.registerTask('default', ['test', 'doc']);
 };

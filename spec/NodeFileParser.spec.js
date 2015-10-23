@@ -14,7 +14,7 @@ describe('NodeFileParser', function() {
 
 describe('NodeFileParser.link', function() {
 
-    const func = NodeFileParser.link;
+    var func = NodeFileParser.link;
 
     it('should return null for invalid input', function() {
         expect(func()).toBe(null);
