@@ -15,11 +15,10 @@
   },
   "keywords": [
     "ini",
+    "srt",
     "json",
     "parse",
     "skelware",
-    "grunt",
-    "gruntjs",
     "asset_compress"
   ],
   "author": {

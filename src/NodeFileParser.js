@@ -25,6 +25,11 @@ module.exports = (function() {
             Handler: require('./parsers/json')
         },
         {
+            name: 'srt',
+            pattern: /\.srt$/i,
+            Handler: require('./parsers/srt')
+        },
+        {
             name: 'text',
             pattern: /.*/i,
             Handler: require('./parsers/text')
