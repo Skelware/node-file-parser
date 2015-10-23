@@ -1,4 +1,4 @@
-![Travis-CI](https://travis-ci.org/Skelware/node-file-parser.svg?branch=master) ![Code Climate](https://codeclimate.com/github/Skelware/node-file-parser/badges/gpa.svg) ![Test Coverage](https://codeclimate.com/github/Skelware/node-file-parser/badges/coverage.svg)
+[![Travis-CI](https://travis-ci.org/Skelware/node-file-parser.svg?branch=master)](https://travis-ci.org/Skelware/node-file-parser) [![Code Climate](https://codeclimate.com/github/Skelware/node-file-parser/badges/gpa.svg)](https://codeclimate.com/github/Skelware/node-file-parser/issues) [![Test Coverage](https://codeclimate.com/github/Skelware/node-file-parser/badges/coverage.svg)](https://codeclimate.com/github/Skelware/node-file-parser/coverage)
 
 # Node File Parser
 The Node File Parser package was initially created to support other packages with their configurations.
