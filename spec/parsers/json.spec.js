@@ -30,8 +30,7 @@ describe('JSON Parser', function() {
     });
 
     it('should be able to handle a broken or invalid JSON file', function() {
-        var no_content = {};
         var content_c = parser_c.read().getContent();
-        expect(content_c).toEqual(no_content);
+        expect(content_c).toEqual({});
     });
 });

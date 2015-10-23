@@ -1,4 +1,4 @@
-[![Build Status](https://drone.io/bitbucket.org/skelware/node-file-parser/status.png)](https://drone.io/bitbucket.org/skelware/node-file-parser/latest)
+![Travis-CI](https://travis-ci.org/Skelware/node-file-parser.svg?branch=master) ![Code Climate](https://codeclimate.com/github/Skelware/node-file-parser/badges/gpa.svg) ![Test Coverage](https://codeclimate.com/github/Skelware/node-file-parser/badges/coverage.svg)
 
 # Node File Parser
 The Node File Parser package was initially created to support other packages with their configurations.

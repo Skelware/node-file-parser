@@ -1,7 +1,6 @@
 module.exports = function(grunt) {
     'use strict';
 
-    grunt.loadNpmTasks('grunt-exec');
     require('load-grunt-tasks')(grunt);
 
     grunt.initConfig({
@@ -23,6 +22,45 @@ module.exports = function(grunt) {
             }
         },
 
+        jasmine_node: {
+            src: ['src/**/*.js'],
+            options: {
+                match: '.',
+                extensions: 'js',
+                specNameMatcher: 'spec',
+                matchAll: false,
+                isVerbose: true,
+                forceExit: true,
+                showColors: true,
+                includeStackTrace: true,
+                captureExceptions: true,
+                specFolders: ['spec'],
+
+                junitreport: {
+                    report: false,
+                    consolidate: true,
+                    useDotNotation: true,
+                    savePath: './build/reports/jasmine/'
+                },
+
+                coverage: {
+                    relativize: true,
+                    print: 'both', // none, summary, detail, both
+                    reportDir: 'coverage',
+                    reportFile: 'coverage.json',
+                    excludes: [],
+                    report: ['lcov'],
+                    collect: ['*coverage.json'],
+                    thresholds: {
+                        statements: 0,
+                        branches: 0,
+                        lines: 0,
+                        functions: 0
+                    }
+                }
+            }
+        },
+
         exec: {
             jasmine: {
                 cmd: 'npm test'
@@ -30,8 +68,10 @@ module.exports = function(grunt) {
         }
     });
 
+    grunt.loadNpmTasks('grunt-jasmine-node-coverage');
+
     grunt.registerTask('lint', ['eslint']);
-    grunt.registerTask('test', ['exec:jasmine']);
+    grunt.registerTask('test', ['jasmine_node']);
     grunt.registerTask('doc', ['yuidoc']);
 
     grunt.registerTask('default', ['test', 'lint', 'doc']);
