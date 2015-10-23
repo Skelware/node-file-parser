@@ -3,7 +3,7 @@
 # Node File Parser
 The Node File Parser package was initially created to support other packages with their configurations.
 
-It can read and write many different file formats including json and ini, but can also default to plaintext. Being written for use with node.js, it can be used asynchronously or synchronously by choice.
+It can read and write many different file formats including json, srt and ini, but can also default to plaintext. Being written for use with node.js, it can be used asynchronously or synchronously by choice.
 
 ## Why another package that parses files?
 Imagine you have an .ini file that contains a list of all your source files nicely categorized into sections. Now you want to use a testing framework to load your source code, because you obviously cannot run tests when the source code is missing.
