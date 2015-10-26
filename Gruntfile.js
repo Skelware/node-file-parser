@@ -68,8 +68,6 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.loadNpmTasks('grunt-jasmine-node-coverage');
-
     grunt.registerTask('lint', ['eslint']);
     grunt.registerTask('doc', ['yuidoc']);
     grunt.registerTask('unit', ['jasmine_node']);
