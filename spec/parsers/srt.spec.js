@@ -2,9 +2,9 @@ var NodeFileParser = require('../../src/NodeFileParser');
 
 describe('SRT Parser', function() {
 
-    var parser_a = NodeFileParser.link('data/lorem.srt');
-    var parser_b = NodeFileParser.link('data/lorem.srt');
-    var parser_c = NodeFileParser.link('data/lorem.ini', 'srt');
+    var parser_a = NodeFileParser.link('data/valid/lorem.srt');
+    var parser_b = NodeFileParser.link('data/valid/lorem.srt');
+    var parser_c = NodeFileParser.link('data/invalid/lorem.srt');
 
     it('should be instanced at all times', function() {
         expect(parser_a).not.toBe(parser_b);
@@ -62,8 +62,18 @@ describe('SRT Parser', function() {
         expect(content_a).toEqual(content_b);
     });
 
-    it('should be able to handle a broken or invalid JSON file', function() {
+    it('should not crash when the user provides invalid data', function() {
+        var content_a = parser_a.read().getContent();
+        parser_a.setContent(null);
+        expect(parser_a.write.bind(parser_a)).not.toThrow();
+
+        parser_a.setContent(content_a).write();
+        expect(parser_a.read().getContent()).toEqual(content_a);
+    });
+
+    it('should be able to handle a broken or invalid SRT file', function() {
+        var content_b = parser_b.read().getContent();
         var content_c = parser_c.read().getContent();
-        expect(content_c).toEqual({});
+        expect(content_b['1312']).toEqual(content_c['1312']);
     });
 });

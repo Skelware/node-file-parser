@@ -57,7 +57,7 @@ module.exports = (function() {
     };
 
     Parser.prototype.decode = function(data) {
-        var lines = data && data.split ? data.split('\n') : [];
+        var lines = data.split('\n');
         var result = {};
 
         var times;
@@ -73,8 +73,13 @@ module.exports = (function() {
                 content: content
             });
 
+            return reset();
+        }
+
+        function reset() {
             content = '';
             times = undefined;
+            number = undefined;
             coordinates = undefined;
         }
 
@@ -86,24 +91,20 @@ module.exports = (function() {
                     store();
                 }
                 number = _number[1];
-                return undefined;
+                return;
+            } else if (!number) {
+                return;
             }
 
             var _coordinates = line.match(regex.coordinates);
-            if (_coordinates) {
-                if (coordinates) {
-                    return store();
-                }
+            if (_coordinates && !coordinates) {
                 coordinates = _coordinates[0];
             }
 
             var _times = line.match(regex.times);
-            if (_times) {
-                if (times) {
-                    return store();
-                }
+            if (_times && !times) {
                 times = _times;
-                return undefined;
+                return;
             }
 
             if (line.length) {
