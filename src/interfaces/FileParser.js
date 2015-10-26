@@ -76,7 +76,7 @@ module.exports = (function() {
     FileParser.prototype.read = function(callback) {
         if (callback) {
             var listener = function(error, data) {
-                this._raw = data;
+                this._raw = data || '';
                 var response = callback(this.decode(this._raw));
 
                 if (response !== false) {
@@ -86,7 +86,7 @@ module.exports = (function() {
 
             fs.readFile(this._file, 'utf8', listener);
         } else {
-            this._raw = fs.readFileSync(this._file, 'utf8');
+            this._raw = fs.readFileSync(this._file, 'utf8') || '';
             this._content = this.decode(this._raw);
         }
         return this;

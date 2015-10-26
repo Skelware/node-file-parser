@@ -52,7 +52,17 @@ module.exports = (function() {
             var key = globals[i];
             var value = data.global[key];
 
-            result += key + ' = ' + value + '\n';
+            if (!Array.isArray(value)) {
+                result += key + ' = ' + value + '\n';
+            } else {
+                /*
+                 TODO: Create ESLint plugin
+                 https://github.com/eslint/eslint/issues/3914
+                 */
+                for (var j = 0; j < value.length; j++) {
+                    result += key + '[] = ' + value[j] + '\n';
+                }
+            }
         }
 
         var sections = Object.keys(data.section);
@@ -92,7 +102,7 @@ module.exports = (function() {
      * @returns {Object} A new object with two primary keys: `global` and `section`.
      */
     Parser.prototype.decode = function(data) {
-        var lines = data && data.split ? data.split('\n') : [];
+        var lines = data.split('\n');
 
         var result = {
             global: {},
@@ -136,29 +146,49 @@ module.exports = (function() {
                 }
 
                 if (section) {
-                    if (array) {
-                        if (result.section[section][key]) {
-                            result.section[section][key].push(value);
-                        } else {
-                            result.section[section][key] = [value];
-                        }
-                    } else {
-                        result.section[section][key] = value;
-                    }
-                } else if (array) {
-                    if (result.global[key]) {
-                        result.global[key].push(value);
-                    } else {
-                        result.global[key] = [value];
-                    }
+                    addToSection(result, section, key, value, array);
                 } else {
-                    result.global[key] = value;
+                    addToGlobal(result, key, value, array);
                 }
             }
         }
 
         return result;
     };
+
+    function addToSection(result, section, key, value, array) {
+        var existing = result.section[section][key];
+
+        if (existing && !!existing.push !== array) {
+            if (!existing.push) {
+                result.section[section][key] = [existing];
+            }
+            array = true;
+            console.warn('Warning in "' + section + '": "' + key + '" is both defined as array and as single item!');
+        }
+
+        if (array) {
+            if (existing) {
+                result.section[section][key].push(value);
+            } else {
+                result.section[section][key] = [value];
+            }
+        } else {
+            result.section[section][key] = value;
+        }
+    }
+
+    function addToGlobal(result, key, value, array) {
+        if (array) {
+            if (result.global[key]) {
+                result.global[key].push(value);
+            } else {
+                result.global[key] = [value];
+            }
+        } else {
+            result.global[key] = value;
+        }
+    }
 
     /**
      * Checks whether a line is a comment or not.

@@ -87,6 +87,17 @@ describe('FileParser', function() {
         expect(typeof content).toBe('string');
     });
 
+    it('should be able to read an empty file without crashing', function(done) {
+        var parser = new FileParser('./data/valid/.nothing');
+        var content = parser.read().getContent();
+        expect(typeof content).toBe('string');
+
+        parser.read(function(data) {
+            expect(typeof data).toBe('string');
+            done();
+        });
+    });
+
     it('should be able to modify the read content while reading it from a file synchronously', function() {
         var parser = new FileParser('./data/lorem.txt');
         var content = parser.modify(function(data) {
