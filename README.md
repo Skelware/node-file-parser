@@ -3,90 +3,106 @@
 # Node File Parser
 The Node File Parser package was initially created to support other packages with their configurations.
 
-It can read and write many different file formats including json, srt and ini, but can also default to plaintext. Being written for use with node.js, it can be used asynchronously or synchronously by choice.
+It can read and write many different file formats. Being written for use with node.js, it can be used asynchronously or synchronously by choice.
 
-## Why another package that parses files?
-Imagine you have an .ini file that contains a list of all your source files nicely categorized into sections. Now you want to use a testing framework to load your source code, because you obviously cannot run tests when the source code is missing.
+This package contains several parsers and formatters by default, but can easily be extended to read and write any file format that you want.
 
-What do you do? Do you copy/paste the contents of the .ini file into your testing framework's configuration file and manually keep it up to date every time you (or someone else) updates the .ini file? Hell no! You want to keep using that .ini file without the need to ever think about having to fiddle around with any testing configurations ever again!
+## Table of contents
+* [Node File Parser](#node-file-parser)
+* [Default file types](#default-file-types)
+* [Custom file types](#custom-file-types)
+* [Contributing](#contributing)
+* [Versioning](#versioning)
 
-This is why we wrote this simple package, it's small yet very extensible and that makes it gorgeous: it can do anything! With the Node File Parser you can tell your testing framework to fetch its source files from any other file, with relative ease.
+## Default file types
+Abbreviation | File Extensions | Description | Limitations
+--- | --- | --- | ---
+JSON | .json .js| JavaScript Object Notation | None!
+INI | .ini | Initialization files | None!
+SRT | .srt | SubRip Text | None!
+TXT | .txt | Plaintext | None!
 
-You want an example? Here, this is an example configuration for using Jasmine with Phantom through Grunt:
-````javascript
-module.exports = function(grunt) {
-    'use strict';
+Any file type that is not directly supported will be parsed as text. You could modify this text in your own application, or register a pluggable parser to streamline the process.
 
-    require('load-grunt-tasks')(grunt);
+## Custom file types
+Adding support for a new or custom file type is easy! Let's give an example for a file type called `Swag`, which has the extension `.swg`.
 
-    /*
-     * Get a reference to the Node File Parser
+1. Create a new FileParser implementation:
+```javascript
+/**
+ * @class swag
+ * @module Parsers
+ */
+var SwagParser = (function() {
+
+    var FileParser = require('./interfaces/FileParser');
+
+    /**
+     * @method Parser
+     * @constructor
      */
-    var parser = require('node-file-parser');
+    function Parser() {
+        FileParser.apply(this, arguments);
+    }
 
-    /*
-     * Create a new link to any file you want with the link function
+    Parser.prototype = Object.create(FileParser.prototype);
+    Parser.constructor = Parser;
+
+    /**
+     * Encodes any JavaScript object into a Swag string that can be written to a file.
+     *
+     * @method encode
+     * @param [data] {Object} Any JavaScript object to be encoded.
+     * @return {String} A valid Swag representation of the data.
      */
-    var assets = parser.link('./foo/bar/configuration.ini');
+    Parser.prototype.encode = function(data) {
+        return Swagger.swaggify(data);
+    };
 
-    /*
-     * Function chaining is supported!
+    /**
+     * Decodes a Swag string to a JavaScript object.
      *
-     * The modify function will allow you to modify data every time the read function is triggered.
-     * The data you will be provided with may depend on the file's format. For .ini files, it's as follows:
-     * {section:String, key:String, value:String}
-     * The callback you provide is called for each entry, and allows you to modify that entry before it's submit.
-     *
-     * The read function tells the parser to read the file. You can optionally provide a callback function as parameter,
-     * in which case the read function will execute asynchronously. However, we want to use a synchronous call in this case.
-     *
-     * The getContent function returns the data after it has been read and parsed. Modifying the result of this function
-     * will allow you to call the write function to store changes with the setContent function.
-     *
-     * The "section" selector filters on sections, because an .ini file can also contain global variables, but we do not want them.
-     * The result of getContent in this case would be {global:{}, section:{}}, but we only want section.
+     * @method decode
+     * @param [data] The Swag string to be decoded.
+     * @returns {Object} An Object with the decoded data, or an empty object if something went wrong.
      */
-    var asset_data = assets.modify(function(data) {
-        data.value = 'foo/bar/' + data.value;
-        return data;
-    }).read().getContent()['section'];
-
-    /*
-     * The matchers are only needed for development, so with good reason they're not in our .ini.
-     * These still need to be added manually, of course.
-     *
-     * "a.js" and "b.js" are example sections that your .ini file may contain, and in this case,
-     * "files" is an array that contains our file paths after being modified by our modifier.
-     *
-     * When we're done, we'll merge everything into one new array and pass it to Jasmine.
-     */
-    var matchers = ['node_modules/jasmine-expect/dist/jasmine-matchers.js'];
-    var section_a = asset_data['a.js'].files;
-    var section_b = asset_data['b.js'].files;
-    var src = matchers.concat(section_a, section_b);
-
-    grunt.initConfig({
-        jasmine: {
-            test: {
-                src: src,
-                options: {
-                    specs: [
-                        'tests/**/*.spec.js'
-                    ]
-                }
-            }
+    Parser.prototype.decode = function(data) {
+        var result;
+        try {
+            var temp = Swagger.parse(data);
+            result = temp;
+        } catch (exception) {
+            result = {};
         }
-    });
+        return result;
+    };
+
+    return Parser;
+}());
+```
+
+2. Register the extension:
+```javascript
+var swag = {
+    name: 'swag',
+    pattern: /\.swag$/i,
+    Handler: SwagParser
 };
-````
-The only manual intervention in this case was the modification of the file paths (changing their relative paths to different relative paths). But now, whenever we change our .ini file, we will not have to worry about our Gruntfile. Great!
+NodeFileParser.parsers.push(swag);
+```
+
+3. Use the extension:
+```javascript
+var file = NodeFileParser.link('./data/glasses.swg');
+var content = file.read().getContent();
+```
 
 ## Contributing
 Whether you're a programmer or not, all contributions are very welcome! You could add features, improve existing features or request new features. Assuming the unit tests cover all worst-case scenarios, you will not be able to report bugs because there will be no bugs.
 
-If you want to make changes to the source, you should fork this repository and create a pull-request to our master branch. Make sure that each individual commit does not break the functionality, and contains new unit tests for the changes you make. Existing assertions will not be edited until a major release to remain compatible with older versions, so please do not change them unless absolutely necessary.
+If you want to make changes to the source, you should fork this repository and create a pull-request to our master branch. Make sure that each individual commit does not break the functionality, and contains new unit tests for the changes you make.
 
-To test your changes locally, run `npm install` followed by `npm test`.
+To test your changes locally, run `npm install` followed by `npm test`. All files that you added or changed must have score 100% coverage in its statements, branches, functions and lines. You will also have to [sign](https://www.clahub.com/agreements/Skelware/node-file-parser) the [Contributor License Agreement](https://www.clahub.com/pages/why_cla), which will take a minute of your time but ensures that neither of us will sue the other.
 
 ## Versioning
 As much as we want everyone to always use the latest version, we know that this is a utopia. Therefore, we adhere to a strict versioning system that is widely accepted: `major.minor.patch`. This is also known as the [SemVer](http://semver.org/spec/v2.0.0.html) method.
