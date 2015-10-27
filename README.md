@@ -8,18 +8,18 @@ It can read and write many different file formats. Being written for use with no
 This package contains several parsers and formatters by default, but can easily be extended to read and write any file format that you want.
 
 ## Table of contents
-* [Node File Parser](#node-file-parser)
-* [Default file types](#default-file-types)
-* [Custom file types](#custom-file-types)
-* [Contributing](#contributing)
-* [Versioning](#versioning)
+* Node File Parser
+ * [Default file types](#default-file-types)
+ * [Custom file types](#custom-file-types)
+ * [Contributing](#contributing)
+ * [Versioning](#versioning)
 
 ## Default file types
 Abbreviation | File Extensions | Description | Limitations
 --- | --- | --- | ---
-JSON | .json .js| JavaScript Object Notation | None!
-INI | .ini | Initialization files | None!
-SRT | .srt | SubRip Text | None!
+JSON | .json .js| JavaScript Object Notation | Does not preserve comments.
+INI | .ini | Initialization files | Does not preserve comments.
+SRT | .srt | SubRip Text | Does not preserve comments.
 TXT | .txt | Plaintext | None!
 
 Any file type that is not directly supported will be parsed as text. You could modify this text in your own application, or register a pluggable parser to streamline the process.
@@ -27,7 +27,7 @@ Any file type that is not directly supported will be parsed as text. You could m
 ## Custom file types
 Adding support for a new or custom file type is easy! Let's give an example for a file type called `Swag`, which has the extension `.swg`.
 
-1. Create a new FileParser implementation:
+* Create a new FileParser implementation:
 ```javascript
 /**
  * @class swag
@@ -35,7 +35,8 @@ Adding support for a new or custom file type is easy! Let's give an example for 
  */
 var SwagParser = (function() {
 
-    var FileParser = require('./interfaces/FileParser');
+    //Note: you will probably have to change the filepath
+    var FileParser = require('../interfaces/FileParser');
 
     /**
      * @method Parser
@@ -81,7 +82,7 @@ var SwagParser = (function() {
 }());
 ```
 
-2. Register the extension:
+* Register the extension:
 ```javascript
 var swag = {
     name: 'swag',
@@ -91,7 +92,7 @@ var swag = {
 NodeFileParser.parsers.push(swag);
 ```
 
-3. Use the extension:
+* Use the extension:
 ```javascript
 var file = NodeFileParser.link('./data/glasses.swg');
 var content = file.read().getContent();
