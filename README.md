@@ -86,7 +86,7 @@ var SwagParser = (function() {
 ```javascript
 var swag = {
     name: 'swag',
-    pattern: /\.swag$/i,
+    pattern: /\.swg$/i,
     Handler: SwagParser
 };
 NodeFileParser.parsers.push(swag);
