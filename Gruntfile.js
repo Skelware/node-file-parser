@@ -2,6 +2,7 @@ module.exports = function(grunt) {
     'use strict';
 
     require('load-grunt-tasks')(grunt);
+    var fse = require('fs-extra');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -71,6 +72,11 @@ module.exports = function(grunt) {
     grunt.registerTask('lint', ['eslint']);
     grunt.registerTask('doc', ['yuidoc']);
     grunt.registerTask('unit', ['jasmine_node']);
-    grunt.registerTask('test', ['lint', 'unit']);
     grunt.registerTask('default', ['test', 'doc']);
+    grunt.registerTask('test', function() {
+        fse.copySync('fixtures/', 'data/', {
+            clobber: true
+        });
+        grunt.task.run(['lint', 'unit']);
+    });
 };
