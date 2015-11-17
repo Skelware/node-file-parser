@@ -1,7 +1,7 @@
 {
-  "version": "1.1.1",
+  "version": "0.0.0",
   "name": "Node File Parser",
-  "description": "HTML5 Editor Documentation",
+  "description": "A simple yet powerful module to parse any file.",
   "url": "https://www.npmjs.com/package/node-file-parser",
   "logo": "",
   "options": {

@@ -10,6 +10,7 @@
   "bugs": {
     "url": "https://github.com/Skelware/node-file-parser/issues"
   },
+  "homepage": "https://github.com/Skelware/node-file-parser",
   "scripts": {
     "test": "grunt test"
   },
