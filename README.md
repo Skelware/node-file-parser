@@ -1,7 +1,6 @@
 [![Travis-CI](https://travis-ci.org/Skelware/node-file-parser.svg?branch=master)](https://travis-ci.org/Skelware/node-file-parser) [![Code Climate](https://codeclimate.com/github/Skelware/node-file-parser/badges/gpa.svg)](https://codeclimate.com/github/Skelware/node-file-parser/issues) [![Test Coverage](https://codeclimate.com/github/Skelware/node-file-parser/badges/coverage.svg)](https://codeclimate.com/github/Skelware/node-file-parser/coverage)
 
-[![bitHound Score](https://www.bithound.io/github/Skelware/node-file-parser/badges/score.svg)](https://www.bithound.io/github/Skelware/node-file-parser)
- [![bitHound Dependencies](https://www.bithound.io/github/Skelware/node-file-parser/badges/dependencies.svg)](https://www.bithound.io/github/Skelware/node-file-parser/master/dependencies/npm)
+[![bitHound Score](https://www.bithound.io/github/Skelware/node-file-parser/badges/score.svg)](https://www.bithound.io/github/Skelware/node-file-parser) [![bitHound Dependencies](https://www.bithound.io/github/Skelware/node-file-parser/badges/dependencies.svg)](https://www.bithound.io/github/Skelware/node-file-parser/master/dependencies/npm)
 # Node File Parser
 
 The Node File Parser package was initially created to support other packages with their configurations.
@@ -16,6 +15,7 @@ This package contains several parsers and formatters by default, but can easily 
  * [Custom file types](#custom-file-types)
  * [Contributing](#contributing)
  * [Versioning](#versioning)
+ * [Roadmap](#roadmap)
 
 ## Default file types
 Abbreviation | File Extensions | Description | Limitations
@@ -110,3 +110,11 @@ To test your changes locally, run `npm install` followed by `npm test`. All file
 
 ## Versioning
 As much as we want everyone to always use the latest version, we know that this is a utopia. Therefore, we adhere to a strict versioning system that is widely accepted: `major.minor.patch`. This is also known as the [SemVer](http://semver.org/spec/v2.0.0.html) method.
+
+## Roadmap
+We seem to have lost our map, so we don't know where we will end up next... but we do know what we still want to do! The following list is in no particular order and probably also does not contain all of our goals, but a roadmap is cool to have.
+* `.csv` support;
+* `.xml` (and thus `.html`) support;
+* A command-line interface `nfp`;
+* Conversion from one file format to any other file format;
+* World domination.
