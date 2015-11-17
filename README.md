@@ -1,6 +1,7 @@
 [![Travis-CI](https://travis-ci.org/Skelware/node-file-parser.svg?branch=master)](https://travis-ci.org/Skelware/node-file-parser) [![Code Climate](https://codeclimate.com/github/Skelware/node-file-parser/badges/gpa.svg)](https://codeclimate.com/github/Skelware/node-file-parser/issues) [![Test Coverage](https://codeclimate.com/github/Skelware/node-file-parser/badges/coverage.svg)](https://codeclimate.com/github/Skelware/node-file-parser/coverage)
 
-[![bitHound Score](https://www.bithound.io/github/Skelware/node-file-parser/badges/score.svg)](https://www.bithound.io/github/Skelware/node-file-parser) [![bitHound Dependencies](https://www.bithound.io/github/Skelware/node-file-parser/badges/dependencies.svg)](https://www.bithound.io/github/Skelware/node-file-parser/master/dependencies/npm)
+[![bitHound Score](https://www.bithound.io/github/Skelware/node-file-parser/badges/score.svg)](https://www.bithound.io/github/Skelware/node-file-parser) [![bitHound Dependencies](https://www.bithound.io/github/Skelware/node-file-parser/badges/dependencies.svg)](https://www.bithound.io/github/Skelware/node-file-parser/master/dependencies/npm) [![codecov.io](https://codecov.io/github/Skelware/node-file-parser/coverage.svg?branch=master)](https://codecov.io/github/Skelware/node-file-parser?branch=master)
+
 # Node File Parser
 
 The Node File Parser package was initially created to support other packages with their configurations.
