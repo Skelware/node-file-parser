@@ -4,6 +4,7 @@ module.exports = function(grunt) {
     var fse = require('fs-extra');
     var pkgJson = grunt.file.readJSON('package.json');
 
+    require('time-grunt')(grunt);
     require('load-grunt-config')(grunt, {
         init: true,
         data: {
