@@ -8,7 +8,6 @@
 module.exports = (function() {
 
     var fs = require('fs');
-    var NodeFileParser = require('../NodeFileParser');
 
     /**
      * Creates a new FileParser.
