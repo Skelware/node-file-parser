@@ -24,6 +24,7 @@ Abbreviation | File Extensions | Description | Limitations
 JSON | .json .js| JavaScript Object Notation | Does not preserve comments.
 INI | .ini | Initialization files | Does not preserve comments.
 SRT | .srt | SubRip Text | Does not preserve comments.
+CSV | .csv | Comma-separated values | Does not preserve comments; <br />Does not support headers and multi-line records.
 TXT | .txt | Plaintext | None!
 
 Any file type that is not directly supported will be parsed as text. You could modify this text in your own application, or register a pluggable parser to streamline the process.
@@ -114,7 +115,6 @@ As much as we want everyone to always use the latest version, we know that this 
 
 ## Roadmap
 We seem to have lost our map, so we don't know where we will end up next... but we do know what we still want to do! The following list is in no particular order and probably also does not contain all of our goals, but a roadmap is cool to have.
-* `.csv` support;
 * `.xml` (and thus `.html`) support;
 * A command-line interface `nfp`;
 * Conversion from one file format to any other file format;
