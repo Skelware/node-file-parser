@@ -30,6 +30,11 @@ module.exports = (function() {
             Handler: require('./parsers/srt')
         },
         {
+            name: 'csv',
+            pattern: /\.csv$/i,
+            Handler: require('./parsers/csv')
+        },
+        {
             name: 'text',
             pattern: /.*/i,
             Handler: require('./parsers/text')
