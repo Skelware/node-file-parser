@@ -107,7 +107,7 @@ Whether you're a programmer or not, all contributions are very welcome! You coul
 
 If you want to make changes to the source, you should fork this repository and create a pull-request to our master branch. Make sure that each individual commit does not break the functionality, and contains new unit tests for the changes you make.
 
-To test your changes locally, run `npm install` followed by `npm test`. All files that you added or changed must have score 100% coverage in its statements, branches, functions and lines. You will also have to [sign](https://www.clahub.com/agreements/Skelware/node-file-parser) the [Contributor License Agreement](https://www.clahub.com/pages/why_cla), which will take a minute of your time but ensures that neither of us will sue the other.
+To test your changes locally, run `npm install` followed by `npm test`. All files that you added or changed must score 100% coverage in its statements, branches, functions and lines. You will also have to [sign](https://www.clahub.com/agreements/Skelware/node-file-parser) the [Contributor License Agreement](https://www.clahub.com/pages/why_cla), which will take a minute of your time but ensures that neither of us will sue the other.
 
 ## Versioning
 As much as we want everyone to always use the latest version, we know that this is a utopia. Therefore, we adhere to a strict versioning system that is widely accepted: `major.minor.patch`. This is also known as the [SemVer](http://semver.org/spec/v2.0.0.html) method.
