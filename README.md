@@ -115,7 +115,10 @@ As much as we want everyone to always use the latest version, we know that this 
 
 ## Roadmap
 We seem to have lost our map, so we don't know where we will end up next... but we do know what we still want to do! The following list is in no particular order and probably also does not contain all of our goals, but a roadmap is cool to have.
+* `.po` and `.pot` support;
 * `.xml` (and thus `.html`) support;
 * A command-line interface `nfp`;
 * Conversion from one file format to any other file format;
+* Complete unit-test overhaul;
+* Complete design overhaul;
 * World domination.
