@@ -34,7 +34,7 @@ module.exports = (function() {
 
             var values = line.split(this._separator);
 
-            if (!values.length) {
+            if (values.length <= 1) {
                 return;
             } else if (!length) {
                 length = values.length;
