@@ -47,19 +47,25 @@ module.exports = (function() {
      * @method link
      * @param file {String} The location of the file to link to.
      * @param [type=detected] {String} Force a specific parser for unknown file types.
+     * @param [options=default] {Object} The options to pass to the FileParser that will be created.
      * @returns {? extends FileParser} A subclass of FileParser to handle the file if the file's extension is matched,
      * or `null` if the file has an invalid path.
      */
-    function link(file, type) {
+    function link(file, type, options) {
         if (file == null || file.length === 0 || typeof file !== 'string') {
             return null;
+        }
+
+        if (type && typeof type !== 'string') {
+            options = type;
+            type = undefined;
         }
 
         for (var i = 0; i < parsers.length; i++) {
             var parser = parsers[i];
 
             if (type ? parser.name === type : parser.pattern.test(file)) {
-                var Handler = new parser.Handler(file);
+                var Handler = new parser.Handler(file, options);
                 Handler.name = parser.name;
                 return Handler;
             }

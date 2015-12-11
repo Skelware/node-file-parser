@@ -10,10 +10,10 @@ module.exports = (function() {
      * @method Parser
      * @constructor
      */
-    function Parser(options) {
+    function Parser(file, options) {
         FileParser.apply(this, arguments);
 
-        if (options.separator) {
+        if (options && options.separator) {
             this._separator = options.separator;
         }
     }
