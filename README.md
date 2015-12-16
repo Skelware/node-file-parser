@@ -114,11 +114,13 @@ To test your changes locally, run `npm install` followed by `npm test`. All file
 As much as we want everyone to always use the latest version, we know that this is a utopia. Therefore, we adhere to a strict versioning system that is widely accepted: `major.minor.patch`. This is also known as the [SemVer](http://semver.org/spec/v2.0.0.html) method.
 
 ## Roadmap
-We seem to have lost our map, so we don't know where we will end up next... but we do know what we still want to do! The following list is in no particular order and probably also does not contain all of our goals, but a roadmap is cool to have.
-* `.po` and `.pot` support;
-* `.xml` (and thus `.html`) support;
-* A command-line interface `nfp`;
-* Conversion from one file format to any other file format;
-* Complete unit-test overhaul;
-* Complete design overhaul;
-* World domination.
+Our roadmap is only a map, which is open to interpretation. However, the following features and/or tasks are in the pipeline:
+* v3.0.0 A complete overhaul of the way files are parsed;
+* v3.0.1 A complete overhaul of the way unit tests are created;
+* v3.1.0 A command-line interface (CLI) to allow easy automation of tasks;
+* v3.2.0 Support for the conversion of a file's format to another format;
+* v3.3.0 Support for internationalization files such as `.po` and `.pot`;
+* v3.4.0 Generalized support for XML-based file formats such as `.xml`, `.html`, and `.xlsx`;
+* v3.5.0 Dedicated support for OOXML-based file formats such as `.xlsx` and `.xltx`;
+* v3.6.0 Dedicated support for HTML-based file formats such as `.html` and `.shtml`;
+* v6.6.6 Wereldheerschappij, Weltherrschaft, мировое господство.
