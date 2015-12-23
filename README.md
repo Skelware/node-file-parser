@@ -12,11 +12,15 @@ This package contains several parsers and formatters by default, but can easily 
 
 ## Table of contents
 * Node File Parser
+ * [Documentation](#documentation)
  * [Default file types](#default-file-types)
  * [Custom file types](#custom-file-types)
  * [Contributing](#contributing)
  * [Versioning](#versioning)
  * [Roadmap](#roadmap)
+
+## Documentation
+Documentation is automatically regenerated and deployed for all version changes, including patches. View the documentation online [here](http://skelware.github.io/node-file-parser/), or generate it locally by running `grunt doc`.
 
 ## Default file types
 Abbreviation | File Extensions | Description | Limitations
