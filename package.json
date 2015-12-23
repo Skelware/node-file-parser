@@ -33,11 +33,13 @@
     "fs-extra": "^0.26.0",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
+    "grunt-contrib-clean": "^0.7.0",
     "grunt-contrib-yuidoc": "^0.10.0",
     "grunt-eslint": "^17.3.1",
     "grunt-jasmine-node-coverage": "^0.4.1",
     "load-grunt-config": "^0.19.0",
     "time-grunt": "^1.2.2",
+    "yuidoc-theme-blue": "^0.1.9",
     "yuidocjs": "^0.9.0"
   }
 }

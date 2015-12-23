@@ -1,7 +1,7 @@
 language: node_js
 node_js:
  - "0.10"
-after_script:
- - codeclimate-test-reporter < coverage/lcov.info
 after_success:
- - cat coverage/lcov.info | node_modules/.bin/codecov
+ - codeclimate-test-reporter < build/coverage/lcov.info
+ - cat build/coverage/lcov.info | node_modules/.bin/codecov
+ - bash scripts/deploy.sh

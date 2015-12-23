@@ -30,7 +30,7 @@ module.exports = function(grunt) {
      * @task doc
      * @runs yuidoc
      */
-    grunt.registerTask('doc', ['yuidoc']);
+    grunt.registerTask('doc', ['clean:doc', 'yuidoc']);
 
     /**
      * Runs all unit tests defined by the specification.
@@ -43,7 +43,7 @@ module.exports = function(grunt) {
             clobber: true
         });
 
-        grunt.task.run(['jasmine_node']);
+        grunt.task.run(['clean:cov', 'jasmine_node']);
     });
 
     /**
@@ -56,11 +56,20 @@ module.exports = function(grunt) {
     grunt.registerTask('test', ['lint', 'unit']);
 
     /**
+     * Builds everything that can be built to fully complete the
+     * developer's environment.
+     *
+     * @task build
+     * @runs doc
+     */
+    grunt.registerTask('build', ['doc']);
+
+    /**
      * The default Grunt operation combines the test and doc tasks.
      *
      * @task default
      * @runs test
      * @runs doc
      */
-    grunt.registerTask('default', ['test', 'doc']);
+    grunt.registerTask('default', ['test', 'build']);
 };
