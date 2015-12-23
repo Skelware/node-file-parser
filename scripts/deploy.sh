@@ -10,7 +10,7 @@ if [ "$TRAVIS_REPO_SLUG" == "$MY_REPO_SLUG" ] && [ "$TRAVIS_BRANCH" == "master" 
         exit 0;
 fi;
 
-bash ./scripts/compile.sh;
+bash ./scripts/build.sh;
 
 cd build/documentation;
 git init;
