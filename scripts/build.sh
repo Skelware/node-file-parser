@@ -2,7 +2,7 @@
 
 set -e;
 
-if [ "$TRAVIS_REPO_SLUG" == "$MY_REPO_SLUG" ] && [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_TAG" ];
+if [ "$TRAVIS_REPO_SLUG" == "$MY_REPO_SLUG" ] && [ "$TRAVIS_TAG" ];
     then
         echo "Deploying v${TRAVIS_TAG}!";
     else
