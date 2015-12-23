@@ -7,7 +7,7 @@ module.exports = {
         description: '<%= pkg.description %>',
         options: {
             nocode: true,
-            paths: './src/',
+            paths: './src',
             outdir: './build/documentation',
             themedir: './node_modules/yuidoc-theme-blue'
         }
