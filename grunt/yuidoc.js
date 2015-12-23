@@ -1,14 +1,15 @@
 module.exports = {
     js: {
+        lintNatives: true,
         name: '<%= pkg.name %>',
+        url: '<%= pkg.homepage %>',
         version: '<%= pkg.version %>',
         description: '<%= pkg.description %>',
-        url: '<%= pkg.homepage %>',
-        lintNatives: true,
         options: {
             nocode: true,
             paths: './src/',
-            outdir: './build/documentation'
+            outdir: './build/documentation',
+            themedir: './node_modules/yuidoc-theme-blue'
         }
     }
 };
