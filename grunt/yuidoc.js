@@ -8,7 +8,7 @@ module.exports = {
         options: {
             nocode: true,
             paths: './src/',
-            outdir: './docs'
+            outdir: './build/documentation'
         }
     }
 };

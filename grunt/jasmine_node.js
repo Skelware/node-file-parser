@@ -16,13 +16,13 @@ module.exports = {
             report: false,
             consolidate: true,
             useDotNotation: true,
-            savePath: './build/reports/jasmine/'
+            savePath: './build/junitreport/'
         },
 
         coverage: {
             relativize: true,
             print: 'both', // none, summary, detail, both
-            reportDir: 'coverage',
+            reportDir: './build/coverage',
             reportFile: 'coverage.json',
             excludes: [],
             report: ['lcov'],
