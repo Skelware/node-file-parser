@@ -1,7 +1,7 @@
 module.exports = {
     js: {
         lintNatives: true,
-        name: '<%= pkg.name %>',
+        name: '<%= pkg.name %> by <%= pkg.author.name %>',
         url: '<%= pkg.homepage %>',
         version: '<%= pkg.version %>',
         description: '<%= pkg.description %>',
