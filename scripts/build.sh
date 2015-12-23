@@ -7,7 +7,7 @@ if [ "$TRAVIS_REPO_SLUG" == "$MY_REPO_SLUG" ] && [ "$TRAVIS_BRANCH" == "master" 
         echo "Deploying v${TRAVIS_TAG}!";
     else
         echo "This build does not require deployment.";
-        exit 0;
+        exit 1;
 fi;
 
 grunt build;
