@@ -30,7 +30,7 @@ module.exports = function(grunt) {
      * @task doc
      * @runs yuidoc
      */
-    grunt.registerTask('doc', ['yuidoc']);
+    grunt.registerTask('doc', ['clean:doc', 'yuidoc']);
 
     /**
      * Runs all unit tests defined by the specification.
@@ -43,7 +43,7 @@ module.exports = function(grunt) {
             clobber: true
         });
 
-        grunt.task.run(['jasmine_node']);
+        grunt.task.run(['clean:cov', 'jasmine_node']);
     });
 
     /**
