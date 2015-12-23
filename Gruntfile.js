@@ -56,11 +56,20 @@ module.exports = function(grunt) {
     grunt.registerTask('test', ['lint', 'unit']);
 
     /**
+     * Builds everything that can be built to fully complete the
+     * developer's environment.
+     *
+     * @task build
+     * @runs doc
+     */
+    grunt.registerTask('build', ['doc']);
+
+    /**
      * The default Grunt operation combines the test and doc tasks.
      *
      * @task default
      * @runs test
      * @runs doc
      */
-    grunt.registerTask('default', ['test', 'doc']);
+    grunt.registerTask('default', ['test', 'build']);
 };
