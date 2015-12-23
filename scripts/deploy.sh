@@ -7,7 +7,7 @@ if ! { [ "$TRAVIS_REPO_SLUG" == "$MY_REPO_SLUG" ] && [ "$TRAVIS_BRANCH" == "mast
         exit 0;
 fi;
 
-sh ./scripts/compile.sh;
+bash ./scripts/compile.sh;
 
 cd build/documentation;
 git init;
