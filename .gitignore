@@ -1,5 +1,4 @@
-/docs
 /data
 /build
-/coverage
 /node_modules
+/.idea
