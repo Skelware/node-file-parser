@@ -1,0 +1,14 @@
+/fixtures
+/grunt
+/scripts
+/spec
+/.eslintignore
+/.eslintrc
+/.travis.yml
+/Gruntfile.js
+
+# Copy of .gitignore
+/data
+/build
+/node_modules
+/.idea
