@@ -1,0 +1,681 @@
+{
+    "project": {
+        "name": "node-file-parser by Skelware",
+        "url": "https://github.com/Skelware/node-file-parser",
+        "version": "2.2.2",
+        "description": "A simple yet powerful module to parse any file."
+    },
+    "files": {
+        "src/interfaces/FileParser.js": {
+            "name": "src/interfaces/FileParser.js",
+            "modules": {},
+            "classes": {
+                "FileParser": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/parsers/csv.js": {
+            "name": "src/parsers/csv.js",
+            "modules": {
+                "Parsers": 1
+            },
+            "classes": {
+                "csv": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/parsers/ini.js": {
+            "name": "src/parsers/ini.js",
+            "modules": {},
+            "classes": {
+                "ini": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/parsers/json.js": {
+            "name": "src/parsers/json.js",
+            "modules": {},
+            "classes": {
+                "json": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/parsers/srt.js": {
+            "name": "src/parsers/srt.js",
+            "modules": {},
+            "classes": {
+                "srt": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/parsers/text.js": {
+            "name": "src/parsers/text.js",
+            "modules": {},
+            "classes": {
+                "text": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/NodeFileParser.js": {
+            "name": "src/NodeFileParser.js",
+            "modules": {
+                "Main": 1
+            },
+            "classes": {
+                "NodeFileParser": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "Main": {
+            "name": "Main",
+            "submodules": {
+                "undefined": 1
+            },
+            "elements": {},
+            "classes": {
+                "NodeFileParser": 1,
+                "FileParser": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/NodeFileParser.js",
+            "line": 1,
+            "description": "The NodeFileParser is the entry point of this package."
+        },
+        "Parsers": {
+            "name": "Parsers",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "csv": 1,
+                "ini": 1,
+                "json": 1,
+                "srt": 1,
+                "text": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/parsers/text.js",
+            "line": 1
+        }
+    },
+    "classes": {
+        "FileParser": {
+            "name": "FileParser",
+            "shortname": "FileParser",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Main",
+            "file": "src/interfaces/FileParser.js",
+            "line": 1,
+            "description": "The FileParer class is an abstract class that need to be extended.\nIf this class is used directly, it will return the contents of a file without parsing them."
+        },
+        "csv": {
+            "name": "csv",
+            "shortname": "csv",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Parsers",
+            "namespace": "",
+            "file": "src/parsers/csv.js",
+            "line": 1
+        },
+        "ini": {
+            "name": "ini",
+            "shortname": "ini",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Parsers",
+            "namespace": "",
+            "file": "src/parsers/ini.js",
+            "line": 1
+        },
+        "json": {
+            "name": "json",
+            "shortname": "json",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Parsers",
+            "namespace": "",
+            "file": "src/parsers/json.js",
+            "line": 1
+        },
+        "srt": {
+            "name": "srt",
+            "shortname": "srt",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Parsers",
+            "namespace": "",
+            "file": "src/parsers/srt.js",
+            "line": 1,
+            "description": "The srt parser is a subclass of `FileParser` that is able to read .srt files,\nprovided they adhere to the following conditions:\n\nEach subtitle starts with a unique number that is greater than zero;\nAfter each number, on a new line, two timestamps will be included in standard format;\nThe two timestamps will be separated by means of an arrow with any amount of whitespace;\nThe timestamps may or may not be followed by coordinates on the same line;\nCoordinates, if present, will be in standard format, with any amount of whitespace;\nAfter the timestamps, on a new line, content may or may not be added;\nAny subsequent lines that are not a number will be treated as content."
+        },
+        "text": {
+            "name": "text",
+            "shortname": "text",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Parsers",
+            "namespace": "",
+            "file": "src/parsers/text.js",
+            "line": 1,
+            "description": "The text parser is a subclass of `FileParser` that does not modify the behaviour of `FileParser`.\nAll data read from the file is returned immediately without decoding and all data written to the file\nis done without encoding the data."
+        },
+        "NodeFileParser": {
+            "name": "NodeFileParser",
+            "shortname": "NodeFileParser",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Main",
+            "namespace": "",
+            "file": "src/NodeFileParser.js",
+            "line": 1,
+            "description": "The NodeFileParser is the entry point of this package.",
+            "static": 1
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "src/interfaces/FileParser.js",
+            "line": 12,
+            "description": "Creates a new FileParser.",
+            "itemtype": "method",
+            "name": "FileParser",
+            "params": [
+                {
+                    "name": "file",
+                    "description": "The location of the file.",
+                    "type": "String"
+                }
+            ],
+            "is_constructor": 1,
+            "class": "FileParser",
+            "module": "Main"
+        },
+        {
+            "file": "src/interfaces/FileParser.js",
+            "line": 26,
+            "description": "Gets the file, but not the content.",
+            "itemtype": "method",
+            "name": "getFile",
+            "return": {
+                "description": "The file location that was supplied to the constructor.",
+                "type": "String"
+            },
+            "class": "FileParser",
+            "module": "Main"
+        },
+        {
+            "file": "src/interfaces/FileParser.js",
+            "line": 36,
+            "description": "Gets the (cached) parsed content of the file, when it was last read.",
+            "itemtype": "method",
+            "name": "getContent",
+            "return": {
+                "description": "The content of the file, after being parsed by the subclass.",
+                "type": "String|Object"
+            },
+            "class": "FileParser",
+            "module": "Main"
+        },
+        {
+            "file": "src/interfaces/FileParser.js",
+            "line": 46,
+            "description": "Gets the (cached) raw content of the file, when it was last read.",
+            "itemtype": "method",
+            "name": "getRawContent",
+            "return": {
+                "description": "The content of the file, without being parsed.",
+                "type": "String"
+            },
+            "class": "FileParser",
+            "module": "Main"
+        },
+        {
+            "file": "src/interfaces/FileParser.js",
+            "line": 56,
+            "description": "Sets the content of this file, but does not yet write to the file.",
+            "itemtype": "method",
+            "name": "setContent",
+            "params": [
+                {
+                    "name": "content",
+                    "description": "",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "chainable": 1,
+            "class": "FileParser",
+            "module": "Main"
+        },
+        {
+            "file": "src/interfaces/FileParser.js",
+            "line": 68,
+            "description": "Reads the file into the current raw content and then parses it.",
+            "itemtype": "method",
+            "name": "read",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": ""
+                }
+            ],
+            "chainable": 1,
+            "class": "FileParser",
+            "module": "Main"
+        },
+        {
+            "file": "src/interfaces/FileParser.js",
+            "line": 94,
+            "description": "Writes or updates the file with the current parsed content.",
+            "itemtype": "method",
+            "name": "write",
+            "chainable": 1,
+            "class": "FileParser",
+            "module": "Main"
+        },
+        {
+            "file": "src/interfaces/FileParser.js",
+            "line": 106,
+            "description": "Adds a callback function to the parser, so that each entry can be modified to tailor specific needs.\nOnly one callback can be active at any given time.",
+            "itemtype": "method",
+            "name": "modify",
+            "params": [
+                {
+                    "name": "watcher",
+                    "description": "The callback that should be called by the parser,\nor `undefined` if the callback should be cleared.",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "chainable": 1,
+            "class": "FileParser",
+            "module": "Main"
+        },
+        {
+            "file": "src/interfaces/FileParser.js",
+            "line": 120,
+            "description": "Encodes the data, turning an Object into a String that can be written to a file.",
+            "itemtype": "method",
+            "name": "encode",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "",
+                    "type": "Object|String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "FileParser",
+            "module": "Main"
+        },
+        {
+            "file": "src/interfaces/FileParser.js",
+            "line": 131,
+            "description": "Decodes the data, turning a String that is read from a file to an Object usable by JavaScript.",
+            "itemtype": "method",
+            "name": "decode",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object|String"
+            },
+            "class": "FileParser",
+            "module": "Main"
+        },
+        {
+            "file": "src/parsers/csv.js",
+            "line": 9,
+            "itemtype": "method",
+            "name": "Parser",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "delimiter",
+                            "description": "A delimiter to separate the fields in a record.",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "','"
+                        }
+                    ]
+                }
+            ],
+            "is_constructor": 1,
+            "class": "csv",
+            "module": "Parsers"
+        },
+        {
+            "file": "src/parsers/ini.js",
+            "line": 17,
+            "itemtype": "method",
+            "name": "Parser",
+            "is_constructor": 1,
+            "class": "ini",
+            "module": "Parsers"
+        },
+        {
+            "file": "src/parsers/ini.js",
+            "line": 28,
+            "description": "Encodes an ini object into an ini string that can be written to a file.",
+            "itemtype": "method",
+            "name": "encode",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "An ini object formatted as explained in the class description.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "A valid ini representation of the data.",
+                "type": "String"
+            },
+            "class": "ini",
+            "module": "Parsers"
+        },
+        {
+            "file": "src/parsers/ini.js",
+            "line": 97,
+            "description": "Decodes an ini string to an ini object.",
+            "itemtype": "method",
+            "name": "decode",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "A string of data to be decoded.",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "A new object with two primary keys: `global` and `section`.",
+                "type": "Object"
+            },
+            "class": "ini",
+            "module": "Parsers"
+        },
+        {
+            "file": "src/parsers/ini.js",
+            "line": 193,
+            "description": "Checks whether a line is a comment or not.",
+            "itemtype": "method",
+            "name": "_isComment",
+            "params": [
+                {
+                    "name": "line",
+                    "description": "The line to check.",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "ini",
+            "module": "Parsers"
+        },
+        {
+            "file": "src/parsers/ini.js",
+            "line": 205,
+            "description": "Checks whether a line indicates a new section or not.",
+            "itemtype": "method",
+            "name": "_getNewSection",
+            "params": [
+                {
+                    "name": "line",
+                    "description": "The line to check.",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "The section name, if found.",
+                "type": "String"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "ini",
+            "module": "Parsers"
+        },
+        {
+            "file": "src/parsers/ini.js",
+            "line": 218,
+            "description": "Checks whether the line contains only valid ini syntax or not.",
+            "itemtype": "method",
+            "name": "_isNotValidIni",
+            "params": [
+                {
+                    "name": "line",
+                    "description": "The line to check.",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "ini",
+            "module": "Parsers"
+        },
+        {
+            "file": "src/parsers/json.js",
+            "line": 9,
+            "itemtype": "method",
+            "name": "Parser",
+            "is_constructor": 1,
+            "class": "json",
+            "module": "Parsers"
+        },
+        {
+            "file": "src/parsers/json.js",
+            "line": 20,
+            "description": "Encodes any JavaScript object into a JSON string that can be written to a file.",
+            "itemtype": "method",
+            "name": "encode",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "Any JavaScript object to be encoded.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "A valid JSON representation of the data.",
+                "type": "String"
+            },
+            "class": "json",
+            "module": "Parsers"
+        },
+        {
+            "file": "src/parsers/json.js",
+            "line": 31,
+            "description": "Decodes a JSON string to a JavaScript object.",
+            "itemtype": "method",
+            "name": "decode",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "The JSON string to be decoded.",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "An Object with the decoded data, or an empty object if something went wrong.",
+                "type": "Object"
+            },
+            "class": "json",
+            "module": "Parsers"
+        },
+        {
+            "file": "src/parsers/srt.js",
+            "line": 29,
+            "itemtype": "method",
+            "name": "Parser",
+            "is_constructor": 1,
+            "class": "srt",
+            "module": "Parsers"
+        },
+        {
+            "file": "src/parsers/text.js",
+            "line": 13,
+            "itemtype": "method",
+            "name": "Parser",
+            "is_constructor": 1,
+            "class": "text",
+            "module": "Parsers"
+        },
+        {
+            "file": "src/NodeFileParser.js",
+            "line": 10,
+            "description": "A list of all parsers.",
+            "itemtype": "property",
+            "name": "parsers",
+            "type": "{Array}",
+            "class": "NodeFileParser",
+            "module": "Main"
+        },
+        {
+            "file": "src/NodeFileParser.js",
+            "line": 44,
+            "description": "Links a file to get read and write access to and from that file.",
+            "itemtype": "method",
+            "name": "link",
+            "params": [
+                {
+                    "name": "file",
+                    "description": "The location of the file to link to.",
+                    "type": "String"
+                },
+                {
+                    "name": "type",
+                    "description": "Force a specific parser for unknown file types.",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "detected"
+                },
+                {
+                    "name": "options",
+                    "description": "The options to pass to the FileParser that will be created.",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "default"
+                }
+            ],
+            "return": {
+                "description": "A subclass of FileParser to handle the file if the file's extension is matched,\nor `null` if the file has an invalid path.",
+                "type": "? extends FileParser"
+            },
+            "class": "NodeFileParser",
+            "module": "Main"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/interfaces/FileParser.js:26"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/interfaces/FileParser.js:36"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/interfaces/FileParser.js:46"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/interfaces/FileParser.js:120"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/interfaces/FileParser.js:131"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/parsers/ini.js:28"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/parsers/ini.js:97"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/parsers/ini.js:193"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/parsers/ini.js:205"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/parsers/ini.js:218"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/parsers/json.js:31"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/NodeFileParser.js:44"
+        }
+    ]
+}
