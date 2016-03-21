@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+#codeclimate-test-reporter < build/coverage/lcov.info
+#cat build/coverage/lcov.info | node_modules/.bin/codecov
+
 set -e;
 
 bash ./scripts/build.sh;
