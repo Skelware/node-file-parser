@@ -1,8 +1,11 @@
 /.idea
 /coverage
+/documentation
 /node_modules
 /scripts
 /.eslintignore
 /.eslintrc
 /.gitignore
 /.travis.yml
+/esdoc.json
+/npm-debug.log

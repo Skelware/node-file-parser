@@ -1,0 +1,12 @@
+{
+  "source": "./src",
+  "destination": "./documentation",
+  "title": "NFP: Skelware's Node File Parser",
+  "includeSource": false,
+  "lint": true,
+  "plugins": [
+    {
+      "name": "esdoc-es7-plugin"
+    }
+  ]
+}
