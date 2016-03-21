@@ -10,4 +10,4 @@ if [ "$TRAVIS_REPO_SLUG" == "$MY_REPO_SLUG" ] && [ "$TRAVIS_TAG" ];
         exit 1;
 fi;
 
-grunt build;
+npm run build;
