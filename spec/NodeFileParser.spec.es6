@@ -4,38 +4,38 @@ import NodeFileParser from '../src/NodeFileParser.es6';
 
 describe('NodeFileParser', () => {
 
-    describe('#getDefaultOptions', () => {
+    describe('#getConfiguration', () => {
 
         it('should return an object of the current default options', () => {
-            const options = NodeFileParser.getDefaultOptions();
+            const options = NodeFileParser.getConfiguration();
             expect(typeof options).toEqual('object');
         });
     });
 
-    describe('#setDefaultOptions', () => {
+    describe('#setConfiguration', () => {
 
         afterEach(() => {
-            NodeFileParser.setDefaultOptions();
+            NodeFileParser.setConfiguration();
         });
 
         it('should reset the default options if used without arguments', () => {
-            const previous = NodeFileParser.setDefaultOptions({
+            const previous = NodeFileParser.setConfiguration({
                 foo: 'bar'
             });
 
-            const current = NodeFileParser.setDefaultOptions();
+            const current = NodeFileParser.setConfiguration();
 
             expect(previous.foo).toEqual('bar');
             expect(current.foo).toBeUndefined();
         });
 
         it('should merge options into the default options by default', () => {
-            const previous = NodeFileParser.setDefaultOptions({
+            const previous = NodeFileParser.setConfiguration({
                 foo: 'bar',
                 bar: 'foo'
             });
 
-            const current = NodeFileParser.setDefaultOptions({
+            const current = NodeFileParser.setConfiguration({
                 foo: 'oof',
                 foobar: 'foobar'
             });
@@ -46,12 +46,12 @@ describe('NodeFileParser', () => {
         });
 
         it('should replace the default options if merging is disabled', () => {
-            const previous = NodeFileParser.setDefaultOptions({
+            const previous = NodeFileParser.setConfiguration({
                 foo: 'bar',
                 bar: 'foo'
             });
 
-            const current = NodeFileParser.setDefaultOptions({
+            const current = NodeFileParser.setConfiguration({
                 foo: 'oof',
                 foobar: 'foobar'
             }, false);
