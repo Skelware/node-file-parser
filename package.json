@@ -14,10 +14,11 @@
   "scripts": {
     "prepublish": "npm run build",
     "postinstall": "npm run build",
-    "build": "babel src --out-dir dist",
+    "dev": "jest --watch",
     "doc": "esdoc -c esdoc.json",
-    "test": "jest --verbose",
-    "dev": "jest --watch"
+    "build": "babel src --out-dir dist",
+    "lint": "eslint src/**/*.es6 spec/**/*.es6 --fix",
+    "test": "eslint src/**/*.es6 spec/**/*.es6 && jest --verbose"
   },
   "keywords": [
     "ini",
@@ -40,6 +41,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "esdoc": "^0.4.6",
     "esdoc-es7-plugin": "0.0.3",
+    "eslint": "^2.4.0",
     "jest-cli": "^0.9.2"
   },
   "jest": {
