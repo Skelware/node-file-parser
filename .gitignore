@@ -1,4 +1,6 @@
-/data
-/build
-/node_modules
 /.idea
+/coverage
+/documentation
+/dist
+/node_modules
+/npm-debug.log

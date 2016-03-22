@@ -1,14 +1,11 @@
-/fixtures
-/grunt
+/.idea
+/coverage
+/documentation
+/node_modules
 /scripts
-/spec
 /.eslintignore
 /.eslintrc
+/.gitignore
 /.travis.yml
-/Gruntfile.js
-
-# Copy of .gitignore
-/data
-/build
-/node_modules
-/.idea
+/esdoc.json
+/npm-debug.log
