@@ -7,9 +7,7 @@ describe('JsonParser', () => {
     describe('#accepts', () => {
 
         it('should return "true" for supported file types', () => {
-            ['json', 'js'].forEach((type) => {
-                expect(JsonParser.accepts(type)).toEqual(true);
-            });
+            ['json'].forEach(type => expect(JsonParser.accepts(type)).toEqual(true));
         });
     });
 });

@@ -49,6 +49,7 @@
     "esdoc": "^0.4.6",
     "esdoc-es7-plugin": "0.0.3",
     "eslint": "^2.4.0",
+    "glob": "^7.0.3",
     "jest-cli": "^0.9.2"
   },
   "jest": {

@@ -7,9 +7,7 @@ describe('SrtParser', () => {
     describe('#accepts', () => {
 
         it('should return "true" for supported file types', () => {
-            ['srt'].forEach((type) => {
-                expect(SrtParser.accepts(type)).toEqual(true);
-            });
+            ['srt'].forEach(type => expect(SrtParser.accepts(type)).toEqual(true));
         });
     });
 });
