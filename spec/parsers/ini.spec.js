@@ -5,6 +5,7 @@ describe('INI Parser', function() {
     var parser_a = NodeFileParser.link('data/valid/lorem.ini');
     var parser_b = NodeFileParser.link('data/valid/lorem.ini');
     var parser_c = NodeFileParser.link('data/invalid/lorem.ini');
+    var parser_d = NodeFileParser.link('data/valid/lorem2.ini');
 
     it('should be instanced at all times', function() {
         expect(parser_a).not.toBe(parser_b);
@@ -51,6 +52,13 @@ describe('INI Parser', function() {
 
         parser_a.write().read();
         expect(content_a).toEqual(parser_a.getContent());
+    });
+
+    it('should be able to handle delimiters in the value', function() {
+        var content_d = parser_d.read().getContent();
+        expect(content_d.section['second section'].files).toEqual([
+            'file1', 'fi=le2', 'file3'
+        ]);
     });
 
     it('should be able to handle a broken or invalid INI file', function() {
