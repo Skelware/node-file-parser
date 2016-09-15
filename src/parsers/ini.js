@@ -11,7 +11,7 @@ module.exports = (function() {
         array: /\[\]/g,
         comment: /\s*;|#/g,
         section: /^\s*\[(.+)\]\s*$/g,
-        keyValuePair: /\s*(.*)\s*(=|:)\s*(.*)(\s|;|#)*/g
+        keyValuePair: /\s*(.*?)\s*(=|:)\s*(.*)(\s|;|#)*/g
     };
 
     /**
@@ -113,7 +113,7 @@ module.exports = (function() {
         for (var i = 0; i < lines.length; i++) {
             var line = lines[i];
 
-            if (_isComment(line) || _isNotValidIni(line)) {
+            if (_isComment(line)) {
                 continue;
             }
 
@@ -213,19 +213,6 @@ module.exports = (function() {
     function _getNewSection(line) {
         var result = new RegExp(regex.section).exec(line || '');
         return result && result[1];
-    }
-
-    /**
-     * Checks whether the line contains only valid ini syntax or not.
-     *
-     * @method _isNotValidIni
-     * @param [line] {String} The line to check.
-     * @returns {Boolean}
-     * @private
-     */
-    function _isNotValidIni(line) {
-        var check = (line || '').match(regex.bad);
-        return !!(check && check.length > 1);
     }
 
     return Parser;
